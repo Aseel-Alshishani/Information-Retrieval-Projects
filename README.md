@@ -3,16 +3,14 @@
 A Python-based Information Retrieval (IR) system that processes a document collection, calculates **TF-IDF weights**, and ranks documents based on their relevance to a user's search query using **Cosine Similarity** and **Jaccard Similarity**.
 
 ## 📖 Overview
-This project implements a search engine from scratch without using high-level IR libraries (like Whoosh or ElasticSearch). It demonstrates the core mathematical concepts of text retrieval:
+This project implements a search engine from scratch without using high-level IR libraries. It demonstrates the core mathematical concepts of text retrieval:
 1.  **Preprocessing:** Reading documents and building a **Bag of Words (BoW)**.
 2.  **Indexing:** Constructing **Frequency Vectors** and **TF-IDF Vectors** for all documents.
 3.  **Ranking:** Calculating similarity scores between the query and documents to return the top results.
 
 ## 🚀 Features
-* **Bag of Words Model:** dynamically creates a vocabulary from the document corpus.
-* **TF-IDF Calculation:**
-    * *Term Frequency (TF):* Log-normalized frequency ($1 + \log(tf)$).
-    * *Inverse Document Frequency (IDF):* Standard log inverse frequency ($\log(N/df)$).
+* **Bag of Words Model:** Dynamically creates a vocabulary from the document corpus.
+* **TF-IDF Calculation:** Implements a specific log-normalization variant for term weighting.
 * **Dual Similarity Metrics:**
     * **Cosine Similarity:** Measures the angle between the query vector and document vectors (best for ranked retrieval).
     * **Jaccard Similarity:** Measures the intersection over union of unique terms (set-based similarity).
@@ -48,21 +46,35 @@ The system expects a main folder containing subfolders for different categories.
     python ir_system.py
     ```
 5.  **Search:**
-    Enter a query when prompted (e.g., `sport`, `economy crisis`, etc.).
+    Enter a query when prompted (e.g., `sport`).
 
 ## 📊 Example Output
 
 ```text
-Enter your search query: sport
+Enter your search query:  sport
 
 The similarity between query and documents based on Cos similarity is:
 Doc id          Similarity
 39 Sport.txt    0.11
 28 Sport.txt    0.10
 46 Sport.txt    0.10
-...
+33 Sport.txt    0.09
+26 Sport.txt    0.09
+50 Sport.txt    0.08
+32 Sport.txt    0.08
+29 Sport.txt    0.07
+49 Sport.txt    0.05
+41 Sport.txt    0.04
 
 The similarity between query and documents based on Jaccard similarity is:
 Doc id          Similarity
 31 Sport.txt    0.01
-...vv
+33 Sport.txt    0.01
+28 Sport.txt    0.01
+32 Sport.txt    0.01
+38 Sport.txt    0.01
+27 Sport.txt    0.01
+29 Sport.txt    0.01
+34 Sport.txt    0.00
+39 Sport.txt    0.00
+26 Sport.txt    0.00
